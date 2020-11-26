@@ -17,14 +17,14 @@ public abstract class AbstractMapService<T,ID> {
         return new ArrayList<>(map.values());
     }
 
-    T findBtId (ID id){
+    T findById (ID id){
         return map.get(id);
     }
 
     void deleteById(ID id){
         map.remove(id);
     }
-    void delete(T Object){
-        map.entrySet().removeIf(entry->entry.getValue().equals(Object));
+    void delete(T object){
+        map.entrySet().removeIf(entry->entry.getValue().equals(object));
     }
 }
