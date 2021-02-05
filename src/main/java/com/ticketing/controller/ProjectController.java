@@ -1,6 +1,8 @@
 package com.ticketing.controller;
 
+import com.ticketing.dto.ProjectDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProjectController {
 
     @GetMapping("/create")
-    public String createProject(){
+    public String createProject(Model model){
+        model.addAttribute("project",new ProjectDTO());
+
+
 
         return "/project/create";
     }
