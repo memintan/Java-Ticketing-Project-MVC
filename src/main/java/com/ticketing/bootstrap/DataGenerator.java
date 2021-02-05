@@ -6,6 +6,7 @@ import com.ticketing.dto.UserDTO;
 import com.ticketing.enums.Gender;
 import com.ticketing.enums.Status;
 import com.ticketing.implementation.RoleServiceImp;
+import com.ticketing.service.ProjectService;
 import com.ticketing.service.RoleService;
 import com.ticketing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,13 @@ public class DataGenerator implements CommandLineRunner {
 
     RoleService roleService;
     UserService userService;
+    ProjectService projectService;
 
     @Autowired
-    public DataGenerator(RoleService roleService, UserService userService) {
+    public DataGenerator(RoleService roleService, UserService userService, ProjectService projectService) {
         this.roleService = roleService;
         this.userService = userService;
+        this.projectService = projectService;
     }
 
     @Override
@@ -61,6 +64,9 @@ public class DataGenerator implements CommandLineRunner {
         ProjectDTO project2 = new ProjectDTO("Spring ORM","PR002",user2, LocalDate.now(),LocalDate.now().plusDays(10),"Creating Database", Status.IN_PROGRESS);
         ProjectDTO project3 = new ProjectDTO("Spring Container","PR003",user1, LocalDate.now(),LocalDate.now().plusDays(32),"Creating Container", Status.UAT_TEST);
 
+        projectService.save(project1);
+        projectService.save(project2);
+        projectService.save(project3);
 
 
 
