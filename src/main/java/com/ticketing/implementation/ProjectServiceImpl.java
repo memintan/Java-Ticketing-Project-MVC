@@ -1,6 +1,7 @@
 package com.ticketing.implementation;
 
 import com.ticketing.dto.ProjectDTO;
+import com.ticketing.enums.Status;
 import com.ticketing.service.ProjectService;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,11 @@ public class ProjectServiceImpl extends AbstractMapService <ProjectDTO,String> i
     @Override
     public ProjectDTO findById(String id) {
         return super.findById(id);
+    }
+
+    @Override
+    public void complete(ProjectDTO project) {
+        project.setProjectStatus(Status.COMPLETE);
+        super.save(project.getProjectCode(), project);
     }
 }

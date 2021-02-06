@@ -22,8 +22,8 @@ public class ProjectController {
     UserService userService;
 
     @GetMapping("/create")
-    public String createProject(Model model){
-        model.addAttribute("project",new ProjectDTO());
+    public String createProject(Model model) {
+        model.addAttribute("project", new ProjectDTO());
         model.addAttribute("projects", projectService.findAll());
         model.addAttribute("managers", userService.findManagers());
 
@@ -31,17 +31,24 @@ public class ProjectController {
     }
 
     @PostMapping("/create")
-    public String insertProject(ProjectDTO project){
+    public String insertProject(ProjectDTO project) {
         projectService.save(project);
         project.setProjectStatus(Status.OPEN);
-        return"redirect:/project/create";
+        return "redirect:/project/create";
     }
 
     @GetMapping("/delete/{projectcode}")
-    public String deleteProject(@PathVariable("projectcode") String projectcode){
+    public String deleteProject(@PathVariable("projectcode") String projectcode) {
         projectService.deleteById(projectcode);
         return "redirect:/project/create";
     }
+
+    @GetMapping("/complete/{projectcode")
+    public String completeProject(@PathVariable("projectcode") String projectcode) {
+
+        return "redirect:/project/create";
+    }
+
 
 
 }
