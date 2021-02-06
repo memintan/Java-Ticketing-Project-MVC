@@ -5,6 +5,11 @@ import com.ticketing.dto.UserDTO;
 import java.util.List;
 
 public interface UserService extends CrudService<UserDTO,String> {
+
+    List<UserDTO> findManagers();
+    List<UserDTO> findEmployees();
+
+
     //save
     //findBy user by username
     //give me all user list
