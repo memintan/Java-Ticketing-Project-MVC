@@ -32,7 +32,60 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form>
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Assigned Manager</label>
+                                                    <select class="custom-select" required="required">
+                                                        <option>Select</option>
+                                                        <option></option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Please choose project</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Assigned Employee</label>
+                                                    <select  class="custom-select" required="required">
+                                                        <option>Select</option>
+                                                        <option></option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Please choose employee</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Task Subject</label>
+                                                    <input id="projectname" type="text" placeholder="task subject" class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter task subject.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Task Detail</label>
+                                                    <textarea class="form-control" required></textarea>
+                                                    <div class="invalid-feedback">Please enter task detail.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="float-right">
+                                                    <button class="btn btn-success rounded-0" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
                                     </form>
