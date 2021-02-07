@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/task")
@@ -43,6 +44,9 @@ public class TaskController {
 
         task.setTaskStatus(Status.OPEN);
         task.setAssignedDate(LocalDate.now());
+        task.setId(UUID.randomUUID().getMostSignificantBits());
+
+        System.out.println("Auto generated ID => " + task.getId());
         taskService.save(task);
 
 
