@@ -1,10 +1,12 @@
 package com.ticketing.implementation;
 
 import com.ticketing.dto.TaskDTO;
+import com.ticketing.dto.UserDTO;
 import com.ticketing.service.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implements TaskService {
@@ -44,5 +46,10 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
     @Override
     public TaskDTO findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public List<TaskDTO> findTaskByManager(UserDTO manager) {
+        return super.findAll().stream().filter(task -> task.getProject().getAssignedManager().equals(manager)).collect(Collectors.toList());
     }
 }
