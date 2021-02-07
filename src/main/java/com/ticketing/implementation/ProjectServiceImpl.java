@@ -30,7 +30,7 @@ public class ProjectServiceImpl extends AbstractMapService <ProjectDTO,String> i
             object.setProjectStatus(newProject.getProjectStatus());
         }
 
-        super.update(object.getProjectCode(), object);
+        super.update(object.getProjectCode(), object) ;
 
     }
 
